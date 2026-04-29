@@ -66,6 +66,9 @@
 > ```
 > julia@Julias-MacBook-Pro keeper-config % docker exec -it clickhouse-server clickhouse-client -q "SHOW CREATE USER developer"
 > CREATE USER developer IDENTIFIED WITH sha256_password SETTINGS PROFILE `developer_profile`
+> ```
+
+> ```
 > julia@Julias-MacBook-Pro keeper-config % docker exec -it clickhouse-server clickhouse-client --user developer --password dev123 -q "SELECT name, value FROM system.settings WHERE name IN ('max_execution_time', 'max_memory_usage')"
 > max_execution_time	0.5
 > max_memory_usage	104857600
