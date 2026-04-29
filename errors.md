@@ -1,25 +1,25 @@
 # database-limit-blocked
 
-> ```julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "CREATE DATABASE test_db3"
-> ```Received exception from server (version 25.8.1):
+> julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "CREATE DATABASE test_db3"
+> Received exception from server (version 25.8.1):
 > Code: 725. DB::Exception: Received from localhost:9000. DB::Exception: Too many databases. The limit (server configuration parameter `max_database_num_to_throw`) is set to 3, the current number of databases is 3. (TOO_MANY_DATABASES)
-> ```(query: CREATE DATABASE test_db3)
-> ```julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "SHOW DATABASES"
-> ```INFORMATION_SCHEMA
-> ```default
-> ```information_schema
-> ```system
-> ```test_db
-> ```test_db2
+> (query: CREATE DATABASE test_db3)
+> julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "SHOW DATABASES"
+> INFORMATION_SCHEMA
+> default
+> information_schema
+> system
+> test_db
+> test_db2
 
 
 
 # timeout-exceeded
-…
+{…
 3532085
 Received exception from server (version 25.8.1):
 Code: 159. DB::Exception: Received from localhost:9000. DB::Exception: Timeout exceeded: elapsed 501.528375 ms, maximum: 500 ms. (TIMEOUT_EXCEEDED)
-(query: SELECT * FROM system.numbers LIMIT 1000000000)
+(query: SELECT * FROM system.numbers LIMIT 1000000000)}
 
 
 # memory-limit-exceeded
