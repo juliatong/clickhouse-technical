@@ -1,15 +1,18 @@
 # database-limit-blocked
 
-> ```julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "CREATE DATABASE test_db3"
-> ```Received exception from server (version 25.8.1):
-> ```Code: 725. DB::Exception: Received from localhost:9000. DB::Exception: Too many databases. The limit (server configuration parameter `max_database_num_to_throw`) is set to 3, the current number of databases is 3. (TOO_MANY_DATABASES)
+> ```
+> julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "CREATE DATABASE test_db3"
+> Received exception from server (version 25.8.1):
+> Code: 725. DB::Exception: Received from localhost:9000. DB::Exception: Too many databases. The limit (server configuration parameter `max_database_num_to_throw`) is set to 3, the current number of databases is 3. (TOO_MANY_DATABASES)
 > ```(query: CREATE DATABASE test_db3)
-> ```julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "SHOW DATABASES"
-> ```INFORMATION_SCHEMA
-> ```default
-> ```information_schema
-> ```system
-> ```test_db
+
+> ```
+> julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client -q "SHOW DATABASES"
+> INFORMATION_SCHEMA
+> default
+> information_schema
+> system
+> test_db
 > ```test_db2
 
 
@@ -25,7 +28,7 @@
 # memory-limit-exceeded
 > ```julia@Julias-MacBook-Pro server-config % docker exec -it clickhouse-server clickhouse-client --user developer --password dev123 -q "SELECT arrayJoin(range(100000000))"
 > ```Received exception from server (version 25.8.1):
-Code: 241. DB::Exception: Received from localhost:9000. DB::Exception: Query memory limit exceeded: would use 381.53 MiB (attempt to allocate chunk of 381.53 MiB bytes), maximum: 100.00 MiB: In scope SELECT arrayJoin(range(100000000)). (MEMORY_LIMIT_EXCEEDED)
+> ```Code: 241. DB::Exception: Received from localhost:9000. DB::Exception: Query memory limit exceeded: would use 381.53 MiB (attempt to allocate chunk of 381.53 MiB bytes), maximum: 100.00 MiB: In scope SELECT arrayJoin(range(100000000)). (MEMORY_LIMIT_EXCEEDED)
 > ```(query: SELECT arrayJoin(range(100000000)))
 
 
