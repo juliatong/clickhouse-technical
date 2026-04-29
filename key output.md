@@ -47,6 +47,7 @@
 > 1. │ allow_all ON system.tables  │
 > 2. │ dev_filter ON system.tables │
 >    └─────────────────────────────┘
+> 2 rows in set. Elapsed: 0.013 sec. 
 > ```
 
 > ```
