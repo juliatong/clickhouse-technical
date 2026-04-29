@@ -1,0 +1,3 @@
+<clickhouse>
+    <max_database_num_to_throw>3</max_database_num_to_throw>
+</clickhouse>
