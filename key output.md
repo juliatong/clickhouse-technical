@@ -111,3 +111,21 @@
 > (query: SELECT * FROM system.zookeeper WHERE path = '/')
 > ```
 
+# Success connecting from server to keeper
+
+> ```
+> julia@Julias-MacBook-Pro keeper-config % docker exec -it clickhouse-server clickhouse-client
+> ClickHouse client version 25.8.1.5101 (official build).
+> Connecting to localhost:9000 as user default.
+> Connected to ClickHouse server version 25.8.1.
+> 
+> Warnings:
+>  * Linux transparent hugepages are set to "always". Check /sys/kernel/mm/transparent_hugepage/enabled
+>  * Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+> ```
+
+> ```
+> julia@Julias-MacBook-Pro keeper-config % docker exec -it clickhouse-server clickhouse-client -q "SELECT * FROM system.zookeeper WHERE path = '/'"
+> keeper		/
+> clickhouse		/
+> ```

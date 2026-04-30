@@ -21,7 +21,7 @@ I found the issue in your config. <listen_host>0.0.0.0</listen_host> is placed i
         ...
     </keeper_server>
 </clickhouse>
-The XML looks almost identical for standalone and embedded. It's a design quirk that trips up experienced engineers like you, that is,  root XML tag <clickhouse> is the SAME for both, which is probably where your confusion comes from. This is a common configuration issue — the official docs don't explicitly show where listen_host belongs in standalone Keeper configs. I'd recommend adding it at the <clickhouse> root level as shown in the corrected config above.
+The XML looks almost identical for standalone and embedded. It's a common configuration issue that the official docs don't explicitly address, and a design quirk that trips up experienced engineers. Root XML tag <clickhouse> is the SAME for both, which is probably where your confusion comes from. This is a common configuration issue — the official docs don't explicitly show where listen_host belongs in standalone Keeper configs. I'd recommend adding it at the <clickhouse> root level as shown in the corrected config above.
 Also make sure your ClickHouse server has a config pointing to Keeper's client port (9181), and that both containers are on the same Docker network so the hostname resolves.
 As for what Keeper does: it's the coordination layer that keeps your servers in sync — replication, schema changes, and leader election all go through Keeper. If you're running more than one ClickHouse server, it's required.
 For production, I'd recommend:

@@ -43,7 +43,7 @@
 ## 4. Req 2a — Admin User
 
 **Decision 1:**
-1. SQL DDL over XML for users. ClickHosue recommended approach. XML is legacy.
+1. SQL DDL over XML for users. ClickHouse recommended approach. XML is legacy.
 2. Immediate change. Using SQL DDL to manage users from inside ClickHouse itself. Changes take effect immediately, no restart needed. With XML, it's all external file manipulation. Restart is needed to effect xml.
 3. Auditable. I can verify everything with SHOW CREATE USER, SHOW GRANTS, SHOW ROW POLICIES — all inspectable from inside the database.
 4. Row policies (CREATE ROW POLICY) only exist in the SQL DDL system
