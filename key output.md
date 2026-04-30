@@ -102,7 +102,7 @@
 > ```
 
 
-# Post server keeper conenction: The server doesn't recognize the Keeper connection
+# Post server keeper connection: The server doesn't recognize the Keeper connection
 
 > ```
 > julia@Julias-MacBook-Pro keeper-config % docker exec -it clickhouse-server clickhouse-client -q "SELECT * FROM system.zookeeper WHERE path = '/'"
