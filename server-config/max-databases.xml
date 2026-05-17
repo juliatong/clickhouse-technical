@@ -1,3 +1,4 @@
 <clickhouse>
+    <max_database_num_to_warn>2</max_database_num_to_warn>
     <max_database_num_to_throw>3</max_database_num_to_throw>
 </clickhouse>
